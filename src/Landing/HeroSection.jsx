@@ -1,6 +1,6 @@
 import React from 'react'
 import HeroLeft from './HeroLeft'
-import bank from '../assets/bank.png'
+import bank from '../assets/Bank.png'
 import HeroRight from './HeroRight'
 
 const HeroSection = () => {
