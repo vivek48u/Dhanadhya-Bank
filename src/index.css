@@ -24,6 +24,29 @@ body {
 button, input, select { font: inherit; }
 button { cursor: pointer; }
 
+/* --- Global polish (added) --- */
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  color: #0f172a;
+}
+::selection { background: #bfdbfe; color: #0b2a6b; }
+
+/* Visible keyboard focus everywhere (mouse clicks stay clean) */
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+input:focus-visible, select:focus-visible { outline: none; }
+
+/* Slim, quiet scrollbars for the dashboard panes */
+* { scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+
+/* Disabled buttons should look disabled everywhere */
+button:disabled { cursor: not-allowed; }
+
 .primary-button {
   display: inline-flex;
   align-items: center;

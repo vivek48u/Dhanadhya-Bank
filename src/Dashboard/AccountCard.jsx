@@ -45,7 +45,7 @@ const AccountCard = ({ account, onMakePrimary }) => {
       onClick={toggleFull}
       onKeyDown={(e) => e.key === 'Enter' && toggleFull()}
       style={{ backgroundImage: `url(${balanceImage})` }}
-      className={`group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl bg-cover bg-center p-6 text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/30 ${
+      className={`group relative flex h-full min-h-[260px] cursor-pointer flex-col overflow-hidden rounded-2xl bg-cover bg-center p-5 text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/30 sm:p-6 ${
         account.isPrimary
           ? 'ring-2 ring-amber-300/80 ring-offset-2 ring-offset-white'
           : 'border border-white/10'

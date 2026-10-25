@@ -42,8 +42,8 @@ const UserSidebar = ({ User }) => {
                 className={({ isActive }) =>
                   `group flex items-center gap-3 rounded-xl px-4 py-3.5 text-sm font-semibold transition-all duration-200 ${
                     isActive
-                      ? 'bg-blue-600 text-white shadow-md shadow-blue-200'
-                      : 'text-slate-600 hover:bg-blue-50 hover:text-blue-700'
+                      ? 'bg-gradient-to-r from-blue-700 to-blue-500 text-white shadow-md shadow-blue-300/50'
+                      : 'text-slate-700 hover:bg-white/70 hover:text-blue-700'
                   }`
                 }
               >
@@ -55,20 +55,20 @@ const UserSidebar = ({ User }) => {
         </nav>
 
         {/* Bottom card */}
-        <div className="mt-auto rounded-2xl border border-blue-300 p-4">
-          <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl bg-white/50 text-blue-900">
+        <div className="mt-auto rounded-2xl border border-white/40 bg-blue-900/30 p-4 text-white shadow-lg backdrop-blur-sm">
+          <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl bg-white/90 text-blue-700">
             <Wallet size={20} />
           </div>
 
           <h3 className="text-sm font-bold">Dhanadhya Finance</h3>
-          <p className="mt-1 text-xs leading-5">Your money, managed smarter.</p>
+          <p className="mt-1 text-xs leading-5 text-blue-50">Your money, managed smarter.</p>
         </div>
       </aside>
 
       {/* Mobile bottom tab bar */}
       <nav
         aria-label="Main navigation"
-        className="fixed inset-x-0 bottom-0 z-40 flex border-t border-blue-100 bg-white shadow-[0_-2px_8px_rgba(0,0,0,0.06)] pb-[env(safe-area-inset-bottom)] md:hidden"
+        className="fixed inset-x-0 bottom-0 z-40 flex border-t border-blue-100 bg-white/95 shadow-[0_-4px_16px_rgba(15,23,42,0.08)] backdrop-blur pb-[env(safe-area-inset-bottom)] md:hidden"
       >
         {menuItems.map((item) => {
           const Icon = item.icon

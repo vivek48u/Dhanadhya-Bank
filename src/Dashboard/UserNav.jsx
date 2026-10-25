@@ -23,7 +23,7 @@ const UserNav = ({ user, User }) => {
   
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-blue-500/40 bg-blue-700 shadow-sm">
+    <nav className="sticky top-0 z-50 w-full border-b border-blue-500/40 bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 shadow-md shadow-blue-900/10">
       <div className="mx-auto flex h-16 w-full items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
 
         {/* Logo and brand */}
@@ -40,7 +40,7 @@ const UserNav = ({ user, User }) => {
         {/* User and logout */}
         <div className="flex shrink-0 items-center gap-3 sm:gap-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-sm font-bold text-blue-700">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-sm font-bold text-blue-700 ring-2 ring-white/30">
               {initials}
             </div>
 

@@ -82,10 +82,10 @@ const Register = () => {
   
 
   return (
-    <main className="min-h-screen bg-white lg:grid lg:grid-cols-2">
+    <main className="min-h-dvh bg-white bg-gradient-to-b from-blue-50 via-white to-white lg:grid lg:grid-cols-2 lg:bg-none">
       {/* LEFT SIDE: REGISTER FORM */}
-      <section className="flex min-h-screen items-center justify-center px-5  lg:py-8 sm:px-10 lg:px-12">
-        <div className="w-full max-w-md">
+      <section className="flex min-h-dvh items-center justify-center px-4 py-8 sm:px-10 lg:px-12 lg:py-8">
+        <div className="w-full max-w-md sm:rounded-3xl sm:border sm:border-slate-100 sm:bg-white sm:p-8 sm:shadow-xl sm:shadow-blue-900/5 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
           {/* Logo */}
           <Link to="/" className="mb-5 flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-200">
@@ -109,7 +109,7 @@ const Register = () => {
               Secure Banking
             </span>
 
-            <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-blue-950">
+            <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-blue-950 min-[400px]:text-4xl">
               Create Your <span className="text-blue-600">Account</span>
             </h1>
 
@@ -141,7 +141,7 @@ const Register = () => {
                   value={formData.fullName}
                   onChange={handleChange}
                   required
-                  className="w-full bg-transparent py-3.5 text-sm text-slate-800 outline-none placeholder:text-slate-400"
+                  className="w-full min-w-0 bg-transparent py-3.5 text-base text-slate-800 outline-none placeholder:text-slate-400 sm:text-sm"
                 />
               </div>
             </div>
@@ -167,7 +167,7 @@ const Register = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-transparent py-3.5 text-sm text-slate-800 outline-none placeholder:text-slate-400"
+                  className="w-full min-w-0 bg-transparent py-3.5 text-base text-slate-800 outline-none placeholder:text-slate-400 sm:text-sm"
                 />
               </div>
             </div>
@@ -193,7 +193,7 @@ const Register = () => {
                   onChange={handleChange}
                   required
                   minLength={8}
-                  className="w-full bg-transparent py-3.5 text-sm text-slate-800 outline-none placeholder:text-slate-400"
+                  className="w-full min-w-0 bg-transparent py-3.5 text-base text-slate-800 outline-none placeholder:text-slate-400 sm:text-sm"
                 />
 
                 <button
@@ -221,7 +221,7 @@ const Register = () => {
             {/* Submit */}
             <button
               type="submit"
-              className="group flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-blue-700 to-blue-500 py-4 font-semibold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-0.5 hover:shadow-xl"
+              className="group flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-blue-700 to-blue-500 py-4 font-semibold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0 active:shadow-md"
             >
               Create Account
               <ArrowRight
@@ -244,7 +244,7 @@ const Register = () => {
       </section>
 
       {/* RIGHT SIDE: BLUE FINTECH BACKGROUND */}
-      <section className="relative hidden min-h-screen overflow-hidden bg-blue-700 lg:block">
+      <section className="relative hidden min-h-dvh overflow-hidden bg-blue-700 lg:block">
         <img
           src={register}
           alt="Dhanadhya Finance digital banking"

@@ -89,7 +89,7 @@ const Account = () => {
   return (
     <div className="space-y-4">
       {/* Banner */}
-      <div className="flex flex-col gap-4 rounded-2xl bg-blue-700 p-5 text-white sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-4 rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 p-5 text-white shadow-lg shadow-blue-900/10 sm:flex-row sm:items-center sm:justify-between sm:p-6">
         <div className="flex items-center gap-4">
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/15">
             <Wallet size={26} />
@@ -102,7 +102,7 @@ const Account = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
           <label className="flex items-center gap-2 text-sm">
             <input
               type="checkbox"
@@ -117,7 +117,7 @@ const Account = () => {
             type="button"
             onClick={handleCreate}
             disabled={creating}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 font-semibold text-blue-700 transition hover:bg-blue-50 disabled:opacity-60"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 font-semibold text-blue-700 shadow-md transition hover:bg-blue-50 disabled:opacity-60 sm:w-auto"
           >
             <Plus size={19} /> {creating ? 'Creating...' : 'Create Account'}
           </button>
@@ -129,7 +129,7 @@ const Account = () => {
       {error && <p className="text-red-600">{error}</p>}
 
       {!loading && !error && accounts.length === 0 && (
-        <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center">
+        <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center sm:p-10">
           <p className="font-semibold text-slate-700">No accounts yet</p>
           <p className="mt-1 text-sm text-slate-500">Create your first account to get started.</p>
         </div>
@@ -149,13 +149,13 @@ const Account = () => {
       {/* Popup */}
       {modal && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-sm"
           onClick={() => setModal(null)}
         >
           <div
             role="dialog"
             aria-modal="true"
-            className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl"
+            className="max-h-[90dvh] w-full max-w-md overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl sm:p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-3">
@@ -187,7 +187,7 @@ const Account = () => {
             <div className="mt-5 rounded-xl bg-blue-50 p-4">
               <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Account number</p>
               <div className="mt-1 flex items-center justify-between gap-3">
-                <p className="text-2xl font-bold tracking-wider text-slate-900">{acc.accountNumber}</p>
+                <p className="min-w-0 break-all text-xl font-bold tracking-wider text-slate-900 sm:text-2xl">{acc.accountNumber}</p>
                 <button
                   onClick={copyNumber}
                   className="inline-flex items-center gap-1.5 rounded-lg border border-blue-200 bg-white px-3 py-1.5 text-sm font-semibold text-blue-600 transition hover:bg-blue-50"

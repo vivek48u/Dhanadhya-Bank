@@ -78,18 +78,18 @@ const History = () => {
   return (
     <div className="mx-auto max-w-3xl space-y-4">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Transaction History</h1>
+        <h1 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">Transaction History</h1>
         <p className="mt-1 text-slate-500">All your transfers in one place. Tap a transaction to see its details.</p>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 overflow-x-auto pb-1">
         {tabs.map((t) => (
           <button
             key={t.key}
             onClick={() => setFilter(t.key)}
-            className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+            className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold transition ${
               filter === t.key
-                ? 'bg-blue-600 text-white'
+                ? 'bg-blue-600 text-white shadow-md shadow-blue-200'
                 : 'border border-slate-200 bg-white text-slate-600 hover:bg-blue-50'
             }`}
           >
@@ -98,7 +98,7 @@ const History = () => {
         ))}
       </div>
 
-      <div className="rounded-2xl border border-slate-200 bg-white p-2 sm:p-3">
+      <div className="rounded-2xl border border-slate-200 bg-white p-1.5 shadow-sm shadow-blue-900/5 sm:p-3">
         {loading && <p className="p-4 text-slate-500">Loading...</p>}
         {error && <p className="p-4 text-red-600">{error}</p>}
         {!loading && !error && visible.length === 0 && (
@@ -113,14 +113,14 @@ const History = () => {
               <button
                 key={t._id}
                 onClick={() => setSelected(t)}
-                className="flex w-full items-center gap-4 rounded-xl px-3 py-4 text-left transition hover:bg-blue-50/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
+                className="flex w-full items-center gap-3 rounded-xl px-2.5 py-3.5 text-left transition hover:bg-blue-50/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 sm:gap-4 sm:px-3 sm:py-4"
               >
                 <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${v.box}`}>
                   <Icon size={22} />
                 </div>
 
                 <div className="min-w-0 flex-1">
-                  <p className="truncate font-semibold text-slate-800">
+                  <p className="line-clamp-2 break-words text-sm font-semibold text-slate-800 sm:line-clamp-none sm:truncate sm:text-base">
                     {v.label} {t.otherName || 'Account'} •••• {t.otherAccountNumber?.slice(-4)}
                   </p>
                   <p className="text-xs text-slate-500">
@@ -129,7 +129,7 @@ const History = () => {
                   </p>
                 </div>
 
-                <p className={`font-bold ${v.amount}`}>
+                <p className={`shrink-0 whitespace-nowrap text-sm font-bold sm:text-base ${v.amount}`}>
                   {v.sign}{money(t.amount)}
                 </p>
                 <ChevronRight size={18} className="shrink-0 text-slate-400" />
@@ -142,13 +142,13 @@ const History = () => {
       {/* Transaction details popup */}
       {selected && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-sm"
           onClick={() => setSelected(null)}
         >
           <div
             role="dialog"
             aria-modal="true"
-            className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl"
+            className="max-h-[90dvh] w-full max-w-md overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl sm:p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-3">
@@ -169,7 +169,7 @@ const History = () => {
 
             <div className="mt-5 rounded-xl bg-blue-50 p-4 text-center">
               <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Amount</p>
-              <p className={`mt-1 text-3xl font-extrabold ${sel.amount}`}>
+              <p className={`mt-1 break-words text-2xl font-extrabold sm:text-3xl ${sel.amount}`}>
                 {sel.sign}{money(selected.amount)}
               </p>
             </div>

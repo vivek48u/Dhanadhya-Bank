@@ -43,11 +43,11 @@ const AddFunds = () => {
   return (
     <div className="mx-auto max-w-md space-y-5">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Add Funds</h1>
+        <h1 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">Add Funds</h1>
         <p className="mt-1 text-slate-500">Add starting money to a user's account.</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6">
+      <form onSubmit={handleSubmit} className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-blue-900/5 sm:p-8">
         <div>
           <label className="mb-2 block text-sm font-semibold text-slate-700">Receiver Account Number</label>
           <input
@@ -55,7 +55,7 @@ const AddFunds = () => {
             onChange={(e) => setToNumber(e.target.value.replace(/\D/g, '').slice(0, 8))}
             placeholder="8 digit account number"
             inputMode="numeric"
-            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500"
+            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
           />
         </div>
 
@@ -67,7 +67,7 @@ const AddFunds = () => {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="0.00"
-            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-500"
+            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
           />
         </div>
 
@@ -80,7 +80,7 @@ const AddFunds = () => {
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded-xl bg-blue-700 py-3 font-semibold text-white disabled:opacity-50"
+          className="w-full rounded-xl bg-gradient-to-r from-blue-700 to-blue-500 py-3 font-semibold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-0.5 hover:shadow-xl disabled:translate-y-0 disabled:opacity-50 disabled:shadow-none"
         >
           {loading ? 'Adding...' : 'Add Funds'}
         </button>

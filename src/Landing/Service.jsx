@@ -53,34 +53,34 @@ const Service = () => {
     >
       <Navbar />
 
-      <div className="mx-auto mb-12 max-w-7xl px-5 pt-10 text-center md:pt-14">
-        <span className="rounded-full bg-blue-100 px-5 py-2 text-sm font-semibold tracking-wider text-blue-600">
+      <div className="mx-auto mb-10 max-w-7xl px-5 pt-10 text-center md:mb-12 md:pt-14">
+        <span className="inline-block rounded-full bg-blue-100/95 px-5 py-2 text-sm font-semibold tracking-wider text-blue-600 shadow-sm">
           OUR SERVICES
         </span>
 
-        <h1 className="mt-5 text-3xl font-extrabold text-slate-900 md:text-5xl">
+        <h1 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
           Modern Banking Services for a
           <span className="block text-blue-600">
             Brighter Tomorrow
           </span>
         </h1>
 
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
+        <p className="mx-auto mt-5 max-w-2xl rounded-2xl bg-white/60 p-3 text-base leading-7 text-slate-700 backdrop-blur-sm sm:bg-transparent sm:p-0 sm:backdrop-blur-none md:text-lg">
           Dhanadhya Finance offers a complete range of digital banking services
           designed to make your financial journey simple, secure and convenient.
         </p>
       </div>
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-5 pb-16 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-5 pb-16 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:px-8">
         {services.map((item) => {
           const Icon = item.icon
 
           return (
             <div
               key={item.title}
-              className="group rounded-2xl border border-blue-100 bg-white/90 p-6 shadow-md backdrop-blur-sm transition duration-300 hover:-translate-y-2 hover:border-blue-300 hover:shadow-xl"
+              className="group rounded-2xl border border-blue-100 bg-white/90 p-5 shadow-md shadow-blue-900/5 backdrop-blur-sm transition duration-300 hover:-translate-y-2 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-900/10 sm:p-6"
             >
-              <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 transition duration-300 group-hover:bg-blue-600 group-hover:text-white">
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 transition duration-300 group-hover:bg-blue-600 group-hover:text-white sm:mb-5 sm:h-16 sm:w-16">
                 <Icon size={30} strokeWidth={1.8} />
               </div>
 
@@ -88,7 +88,7 @@ const Service = () => {
                 {item.title}
               </h2>
 
-              <p className="mt-3 min-h-[72px] text-sm leading-6 text-slate-600">
+              <p className="mt-3 text-sm leading-6 text-slate-600 sm:min-h-[72px]">
                 {item.description}
               </p>
 

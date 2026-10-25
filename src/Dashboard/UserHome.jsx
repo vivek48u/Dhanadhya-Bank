@@ -94,7 +94,7 @@ const Home = ({User}) => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">{greeting}, {User?.name} ✌️</h1>
+        <h1 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">{greeting}, {User?.name} ✌️</h1>
         <p className="mt-1 text-slate-500">Here's an overview of your finances.</p>
       </div>
 
@@ -103,33 +103,33 @@ const Home = ({User}) => {
         style={{
           backgroundImage: `linear-gradient(rgba(10,31,92,0.25), rgba(10,31,92,0.25)), url(${balanceImage})`,
         }}
-        className="flex w-full flex-col gap-2 rounded-2xl bg-cover bg-center bg-no-repeat p-5 sm:p-6"
+        className="flex w-full flex-col gap-2 rounded-2xl bg-cover bg-center bg-no-repeat p-5 shadow-xl shadow-blue-900/20 sm:p-6 lg:p-8"
       >
         <span className="font-bold text-white">Total Balance</span>
-        <h1 className="text-4xl font-extrabold text-white sm:text-5xl">
+        <h1 className="break-words text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
           {balance !== null ? money(balance?.balance ?? balance) : '₹ ••••••'}
         </h1>
 
-        <div className="mt-4 flex flex-wrap gap-3">
+        <div className="mt-4 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:flex sm:flex-wrap">
           <button
             onClick={checkBalance}
-            className="flex items-center gap-2 rounded-xl border border-white/60 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+            className="flex items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-white/60 bg-white/10 px-3 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 sm:px-6 sm:text-base"
           >
-            <Eye size={20} />
+            <Eye size={20} className="shrink-0" />
             Check Balance
           </button>
 
           <button
             onClick={() => navigate('/app/transfer')}
-            className="flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-blue-700 transition hover:bg-blue-50"
+            className="flex items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-white px-3 py-3 text-sm font-semibold text-blue-700 shadow-md transition hover:bg-blue-50 sm:px-6 sm:text-base"
           >
-            <Send size={20} />
+            <Send size={20} className="shrink-0" />
             Send Money
           </button>
 
           <button
             onClick={() => navigate('/app/account')}
-            className="flex items-center gap-2 rounded-xl border border-white/60 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+            className="flex items-center justify-center gap-2 rounded-xl border border-white/60 bg-white/10 px-4 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 min-[420px]:col-span-2 sm:col-span-1 sm:px-6 sm:text-base"
           >
             <Wallet size={20} />
             Accounts
@@ -150,7 +150,7 @@ const Home = ({User}) => {
                 if (item.type) showEntries(item.type)
                 else if (item.to) navigate(item.to)
               }}
-              className={`flex cursor-pointer items-center gap-4 rounded-2xl border bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md ${
+              className={`flex min-w-0 cursor-pointer items-center gap-4 rounded-2xl border bg-white p-5 shadow-sm shadow-blue-900/5 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/10 ${
                 isActive ? 'border-blue-500' : 'border-slate-100'
               }`}
             >
@@ -159,7 +159,7 @@ const Home = ({User}) => {
               </div>
               <div>
                 <p className="text-sm text-slate-500">{item.title}</p>
-                <h2 className="text-2xl font-bold text-slate-900">{item.amount}</h2>
+                <h2 className="break-words text-xl font-bold text-slate-900 sm:text-2xl">{item.amount}</h2>
                 <p className="mt-1 text-sm font-semibold text-blue-600">{item.link}</p>
               </div>
             </div>
@@ -169,7 +169,7 @@ const Home = ({User}) => {
 
       {/* Entries list */}
       {activeType && (
-        <div className="rounded-2xl border border-slate-200 bg-white p-6">
+        <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-bold text-slate-900">
               {activeType === 'debit' ? 'Sent (Debit) Entries' : 'Received (Credit) Entries'}
@@ -200,7 +200,7 @@ const Home = ({User}) => {
                     {e.createdAt ? new Date(e.createdAt).toLocaleString() : ''}
                   </p>
                 </div>
-                <p className={`font-bold ${activeType === 'debit' ? 'text-red-600' : 'text-green-600'}`}>
+                <p className={`shrink-0 pl-3 font-bold ${activeType === 'debit' ? 'text-red-600' : 'text-green-600'}`}>
                   {activeType === 'debit' ? '-' : '+'}{money(e.amount)}
                 </p>
               </div>
@@ -210,7 +210,7 @@ const Home = ({User}) => {
       )}
 
       {/* Bottom banner */}
-      <div className="rounded-2xl border border-blue-100 bg-gradient-to-r from-blue-700 to-blue-500 p-7 text-white sm:p-10">
+      <div className="relative overflow-hidden rounded-2xl border border-blue-100 bg-gradient-to-r from-blue-700 to-blue-500 p-6 text-white shadow-lg shadow-blue-900/10 before:pointer-events-none before:absolute before:-right-12 before:-top-12 before:h-48 before:w-48 before:rounded-full before:bg-white/10 after:pointer-events-none after:absolute after:-bottom-16 after:right-16 after:h-40 after:w-40 after:rounded-full after:bg-white/5 sm:p-10">
         <p className="text-sm text-blue-100">Your finances, all in one place</p>
         <h2 className="mt-3 text-2xl font-bold sm:text-3xl">Banking made simpler.</h2>
         <p className="mt-3 max-w-xl text-sm leading-6 text-blue-100">

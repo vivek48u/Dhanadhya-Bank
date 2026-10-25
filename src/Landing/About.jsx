@@ -33,20 +33,20 @@ const About = () => {
     >
       <Navbar />
 
-      <section className="mx-auto max-w-7xl px-5 py-10 sm:px-8 md:py-12">
+      <section className="mx-auto max-w-7xl px-5 py-10 sm:px-8 md:py-14 lg:px-12">
         <div className="max-w-xl">
-          <span className="inline-block rounded-full bg-sky-100 px-4 py-2 text-sm font-semibold text-sky-700">
+          <span className="inline-block rounded-full bg-sky-100/95 px-4 py-2 text-sm font-semibold text-sky-700 shadow-sm">
             About Us
           </span>
 
-          <h1 className="mt-4 text-3xl font-extrabold leading-tight text-blue-950 sm:text-4xl md:text-5xl">
+          <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-blue-950 sm:text-4xl md:text-5xl">
             Building a Smarter Financial{' '}
             <span className="text-blue-600">
               Future Together
             </span>
           </h1>
 
-          <p className="mt-5 text-base leading-7 text-slate-700 sm:text-lg">
+          <p className="mt-5 rounded-2xl bg-white/65 p-4 text-base leading-7 text-slate-700 backdrop-blur-sm sm:bg-transparent sm:p-0 sm:text-lg sm:leading-8 sm:backdrop-blur-none">
             Dhanadhya Finance is a modern digital banking platform
             built to make financial services simple, secure, and
             accessible. We combine technology with trust to help
@@ -55,7 +55,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="mt-8 flex max-w-xl flex-col gap-4">
+        <div className="mt-8 flex max-w-xl flex-col gap-4 md:mt-10">
           {features.map((item) => {
             const Icon = item.icon
 

@@ -104,15 +104,15 @@ const Transaction = () => {
   }
 
   return (
-    <div className="mx-auto max-w-3xl space-y-3">
+    <div className="mx-auto max-w-3xl space-y-4">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Transfer Money</h1>
+        <h1 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">Transfer Money</h1>
         <p className="mt-1 text-slate-500">Send money between accounts securely.</p>
       </div>
 
       <form
         onSubmit={handleReview}
-        className="space-y-5 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm sm:p-8"
+        className="space-y-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm shadow-blue-900/5 sm:p-8"
       >
         <div className="flex items-center gap-3 rounded-xl bg-blue-50 p-4 text-blue-800">
           <ShieldCheck size={26} />
@@ -210,7 +210,7 @@ const Transaction = () => {
         <button
           type="submit"
           disabled={!isValid || loading}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-700 py-3.5 font-semibold text-white transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-700 to-blue-500 py-3.5 font-semibold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-0.5 hover:shadow-xl disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
         >
           <ArrowLeftRight size={19} />
           Continue Transfer
@@ -220,22 +220,22 @@ const Transaction = () => {
       {/* Review modal */}
       {showConfirm && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-sm"
           onClick={() => !loading && setShowConfirm(false)}
         >
           <div
-            className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl"
+            className="max-h-[90dvh] w-full max-w-md overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl sm:p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <h2 className="text-lg font-bold text-slate-900">Confirm transfer</h2>
             <p className="mt-1 text-sm text-slate-500">Please check the details carefully.</p>
 
-            <p className="mt-5 text-3xl font-bold text-blue-700">{inr(Number(amount))}</p>
+            <p className="mt-5 break-words text-3xl font-bold text-blue-700">{inr(Number(amount))}</p>
 
             <dl className="mt-4 space-y-3 text-sm">
               <div className="flex justify-between gap-4">
                 <dt className="text-slate-500">From</dt>
-                <dd className="font-semibold text-slate-800">
+                <dd className="break-words text-right font-semibold text-slate-800">
                   {selected && accountLabel(selected)}
                 </dd>
               </div>
@@ -247,7 +247,7 @@ const Transaction = () => {
               </div>
             </dl>
 
-            <div className="mt-6 flex gap-3">
+            <div className="mt-6 flex flex-col-reverse gap-3 min-[400px]:flex-row">
               <button
                 onClick={() => setShowConfirm(false)}
                 disabled={loading}

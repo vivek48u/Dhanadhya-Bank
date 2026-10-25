@@ -27,15 +27,15 @@ const SystemHome = ({ user }) => {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Hello, {user?.name}</h1>
+        <h1 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">Hello, {user?.name}</h1>
         <p className="mt-1 text-slate-500">System control panel.</p>
       </div>
 
-      <div className="rounded-xl bg-blue-500 p-5">
+      <div className="rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 p-5 shadow-lg shadow-blue-900/10 sm:p-6">
         <div className="flex items-center gap-2 text-gray-100 font-semibold">
           <Landmark size={20} /> Total funds issued
         </div>
-        <h1 className="mt-2 text-5xl font-extrabold text-sky-950">
+        <h1 className="mt-2 break-words text-3xl font-extrabold text-white sm:text-5xl">
           {issued !== null ? `₹${issued.toLocaleString('en-IN')}` : '₹ ****'}
         </h1>
         <p className="mt-2 text-sm text-blue-100">
@@ -46,7 +46,7 @@ const SystemHome = ({ user }) => {
       <div className="grid gap-5 sm:grid-cols-2">
         <button
           onClick={() => navigate('/app/add-funds')}
-          className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-white p-6 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+          className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-white p-5 text-left shadow-sm shadow-blue-900/5 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/10 sm:p-6"
         >
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-green-700">
             <CirclePlus size={24} />
@@ -59,7 +59,7 @@ const SystemHome = ({ user }) => {
 
         <button
           onClick={() => navigate('/app/history')}
-          className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-white p-6 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+          className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-white p-5 text-left shadow-sm shadow-blue-900/5 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/10 sm:p-6"
         >
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-indigo-700">
             <History size={24} />

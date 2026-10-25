@@ -21,6 +21,8 @@ const UserDashboard = () => {
         const res = await api.get("/api/auth/profile", {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
+        console.log(res.data.profile);
+        
         setUser(res.data.profile);
       } catch (err) {
         console.log(err.response?.data || err.message);
@@ -36,17 +38,17 @@ const UserDashboard = () => {
   }, []);
 
   return (
-    <div className="h-screen overflow-hidden bg-slate-50">
+    <div className="h-dvh overflow-hidden bg-slate-50">
       <UserNav User={User} />
 
-      <div className="flex h-[calc(100vh-64px)] items-start">
+      <div className="flex h-[calc(100dvh-64px)] items-start">
         {/* Sidebar */}
         <div className="lg:hidden lg:h-full  lg:w-64 lg:shrink-0 lg:md:block overflow-y-auto pb-20 md:pb-0">
           <UserSidebar User={User} />
         </div>
 
         {/* Main Content */}
-        <main className="min-w-0 flex-1 h-full overflow-y-auto p-4 sm:p-6">
+        <main className="h-full min-w-0 flex-1 overflow-y-auto p-4 pb-24 sm:px-6 sm:pt-6 md:pb-8 lg:px-8">
           <Outlet context={{ User}} />
         </main>
       </div>
