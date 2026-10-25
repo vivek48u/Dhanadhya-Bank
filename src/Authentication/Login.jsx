@@ -34,6 +34,7 @@ const Login = () => {
         password,
       });
       console.log(response.data)
+      localStorage.setItem('token', response.data.token)
 
       // Successful login ke baad dashboard par jao.
       navigate("/app");
