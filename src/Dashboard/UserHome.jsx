@@ -11,7 +11,7 @@ const money = (n) => {
   return `₹${value.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 }
 
-const Home = () => {
+const Home = ({User}) => {
   const navigate = useNavigate()
   const ctx = useOutletContext()
   const user = ctx?.user ?? ctx?.User   // works with either prop name
@@ -94,7 +94,7 @@ const Home = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">{greeting}, {user?.name} ✌️</h1>
+        <h1 className="text-2xl font-bold text-slate-900">{greeting}, {User?.name} ✌️</h1>
         <p className="mt-1 text-slate-500">Here's an overview of your finances.</p>
       </div>
 

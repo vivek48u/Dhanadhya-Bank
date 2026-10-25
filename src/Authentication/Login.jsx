@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import registerBg from '../assets/reg.png'
+import logi from '../assets/logi.png'
 import api from '../api/axios'
 import {
   Mail,
@@ -196,7 +196,7 @@ const Login = () => {
         <div
           className="absolute inset-0 bg-cover bg-right"
           style={{
-            backgroundImage: "url('/src/assets/logi.png')",
+            backgroundImage: `url(${logi})`,
             backgroundSize: 'auto 100%',
             backgroundPosition: 'right center',
           }}
