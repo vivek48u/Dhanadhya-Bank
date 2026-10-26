@@ -40,6 +40,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
+    setLoading(true)
 
     if (formData.password.length < 8) {
       setError('Password must be at least 8 characters long.')
@@ -59,8 +60,8 @@ const Register = () => {
     console.log('Registration response:', response.data)
 
     // Registration successful: login page par jao.
-    navigate('/login', {
-      state: { message: 'Registration successful. Please log in.' },
+    navigate('/app', {
+      state: { message: 'Registration successful' },
     })
   } catch (err) {
     console.error(
@@ -220,15 +221,30 @@ const Register = () => {
 
             {/* Submit */}
             <button
-              type="submit"
-              className="group flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-blue-700 to-blue-500 py-4 font-semibold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0 active:shadow-md"
-            >
-              Create Account
-              <ArrowRight
-                size={20}
-                className="transition group-hover:translate-x-1"
-              />
-            </button>
+  type="submit"
+  disabled={Loading}
+  className={`group flex w-full items-center justify-center gap-3 rounded-xl py-4 font-semibold text-white shadow-lg transition
+  ${
+    Loading
+      ? "cursor-not-allowed bg-slate-400"
+      : "bg-gradient-to-r from-blue-700 to-blue-500 hover:-translate-y-0.5 hover:shadow-xl"
+  }`}
+>
+  {Loading ? (
+    <>
+      <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+      Logging in...
+    </>
+  ) : (
+    <>
+      Create Account
+      <ArrowRight
+        size={20}
+        className="transition group-hover:translate-x-1"
+      />
+    </>
+  )}
+</button>
           </form>
 
           <p className="mt-4 text-center text-sm text-slate-500">

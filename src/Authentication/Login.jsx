@@ -25,16 +25,18 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
+    setLoading(true)
 
     // Connect your existing backend login API here.
 
-       try {
+    try {
       const response = await api.post("/api/auth/login", {
         email,
         password,
       });
       console.log(response.data)
       localStorage.setItem('token', response.data.token)
+
 
       // Successful login ke baad dashboard par jao.
       navigate("/app");
@@ -45,7 +47,7 @@ const Login = () => {
       );
     } finally {
       setLoading(false);
-    } 
+    }
   }
 
   return (
@@ -139,9 +141,11 @@ const Login = () => {
                   onClick={() => setShowPassword(!showPassword)}
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
                   className="text-slate-400 transition hover:text-blue-600"
+
                 >
                   {showPassword ? <EyeOff size={19} /> : <Eye size={19} />}
                 </button>
+
               </div>
             </div>
 
@@ -156,7 +160,7 @@ const Login = () => {
                 Remember me
               </label>
 
-              
+
             </div>
 
             {error && (
@@ -170,13 +174,27 @@ const Login = () => {
 
             <button
               type="submit"
-              className="group flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-blue-700 to-blue-500 py-4 font-semibold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0 active:shadow-md"
+              disabled={loading}
+              className={`group flex w-full items-center justify-center gap-3 rounded-xl py-4 font-semibold text-white shadow-lg transition
+            ${loading
+                  ? "cursor-not-allowed bg-slate-400"
+                  : "bg-gradient-to-r from-blue-700 to-blue-500 hover:-translate-y-0.5 hover:shadow-xl"
+                }`}
             >
-              Login to Your Account
-              <ArrowRight
-                size={20}
-                className="transition group-hover:translate-x-1"
-              />
+              {loading ? (
+                <>
+                  <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                  Logging in...
+                </>
+              ) : (
+                <>
+                  Login to Your Account
+                  <ArrowRight
+                    size={20}
+                    className="transition group-hover:translate-x-1"
+                  />
+                </>
+              )}
             </button>
           </form>
 
