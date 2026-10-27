@@ -60,7 +60,7 @@ const Register = () => {
     console.log('Registration response:', response.data)
 
     // Registration successful: login page par jao.
-    navigate('/app', {
+    navigate('/login', {
       state: { message: 'Registration successful' },
     })
   } catch (err) {
